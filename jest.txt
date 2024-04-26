@@ -1,0 +1,107 @@
+- structure of testing
+  - AAA principles:
+    - arrange
+    - act 
+    - assert 
+  - setup
+  - teardown
+
+
+- What is Jest.js?
+  - Jest.js is an open-source JavaScript testing framework developed by Facebook. 
+    It's known for its simplicity, speed, and built-in features like test runners, assertions, and mocks.
+  - Jest.js is a popular JavaScript testing framework primarily used for testing JavaScript code in projects, particularly those built with React, Vue.js, Angular, and Node.js. 
+
+- How do you install Jest.js?
+  - Jest.js can be installed via npm (Node Package Manager) by running the command:
+    - npm install --save-dev jest
+   
+
+- What are the key features of Jest.js?
+   - Automatic mocking
+   - Snapshot testing
+   - Code coverage reporting
+   - Parallel testing
+   - Built-in matchers for assertions
+   - Support for asynchronous testing
+
+- What is snapshot testing in Jest.js?
+  - Snapshot testing is a feature in Jest.js that captures the rendered output of a component or a function and saves it as a reference file. 
+    It allows developers to compare future renders against this snapshot to detect unexpected changes.
+
+- How do you write a basic test in Jest.js?
+   Example:
+   // math.js
+   function add(a, b) {
+     return a + b;
+   }
+
+   module.exports = add;
+   
+   // math.test.js
+   const add = require('./math');
+
+   test('adds 1 + 2 to equal 3', () => {
+     expect(add(1, 2)).toBe(3);
+   });
+   
+- How do you run Jest.js tests?
+  - Jest.js tests can be executed by running the `jest` command in the terminal. 
+    By default, Jest.js looks for test files with filenames ending in `.test.js` or `.spec.js` in the project directory and runs them.
+
+- How do you mock dependencies in Jest.js?
+  - Jest.js provides built-in mocking capabilities through functions like `jest.mock()` and `jest.fn()`. 
+    These functions allow developers to replace dependencies with mock implementations during testing.
+
+- What is code coverage reporting in Jest.js?
+  - Code coverage reporting in Jest.js measures the percentage of code that is covered by tests. Jest.js generates detailed reports 
+    indicating which lines of code are covered by tests and which are not, helping developers identify areas that need more testing.
+
+- How do you perform asynchronous testing in Jest.js?
+  - Jest.js provides several ways to handle asynchronous code, such as using `async/await`, `Promise`, 
+    or Jest's built-in functions like `async/await` or `done()`.
+
+- Can Jest.js be integrated with other tools?
+  - Yes, Jest.js can be integrated with other tools like ESLint for code linting, webpack for module bundling, 
+    and CI/CD pipelines for continuous integration and deployment.
+
+- What are test suites and test cases in Jest.js?
+  - Test suites are collections of test cases that describe the behavior of a specific module, component, or feature.
+  - Test cases (or test specs) are individual tests within a test suite that verify certain behaviors or functionalities of the code being tested.
+
+- How do you group related tests into a test suite in Jest.js?
+  - Test suites are created using the `describe()` function provided by Jest.js. 
+    It takes a string description and a function containing the test cases as arguments.
+
+- What is the purpose of beforeEach() and afterEach() in Jest.js?
+  - `beforeEach()` and `afterEach()` are Jest.js functions that allow you to run setup and teardown code before and after each test case in a test suite, respectively.
+  - They are useful for initializing test dependencies, resetting state, or performing cleanup tasks to ensure that each test case runs in isolation.
+
+- How do you skip or focus on specific tests in Jest.js?
+  - Tests can be skipped by using the `test.skip()` function or by appending `.skip` to the `test()` function.
+  - Tests can be focused on by using the `test.only()` function or by appending `.only` to the `test()` function. 
+    Only focused tests will be executed, and all others will be skipped.
+
+- What are mock functions in Jest.js?
+  - Mock functions in Jest.js are fake functions that replace real functions during testing. 
+    They allow you to track calls, control return values, and simulate behavior without executing the actual function.
+
+- How do you assert that a function throws an error in Jest.js?
+  - Jest.js provides the `toThrow()` matcher to assert that a function throws an error when called.
+  - Example: `expect(() => someFunction()).toThrow(ErrorType);`
+
+- What is the purpose of the Jest.js configuration file (jest.config.js)?
+  - The Jest.js configuration file allows you to customize Jest.js behavior and settings for your project. 
+    It can be used to specify options such as test file patterns, test environment, setup files, and more.
+
+- How do you run Jest.js tests in watch mode?
+  - Jest.js provides a watch mode that automatically re-runs tests when files are modified. 
+    It can be activated by running `jest --watch` or `jest --watchAll` in the terminal.
+
+- What is the difference between `toBe()` and `toEqual()` matchers in Jest.js?
+  - `toBe()` is used to compare primitive values like numbers, strings, and booleans for strict equality (===).
+  - `toEqual()` is used to compare objects and arrays by recursively checking their properties and elements for equality.
+
+- How do you mock timers and asynchronous functions in Jest.js?
+  - Jest.js provides functions like `jest.useFakeTimers()` to mock timers such as `setTimeout()` and `setInterval()`.
+  - Asynchronous functions can be mocked using `jest.fn()` to create mock implementations that return promises or values asynchronously.   
