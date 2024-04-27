@@ -4,6 +4,9 @@ export function toUpper(params: string): string {
 
 export class StringUtils {
   public toUpperCase(arg: string) {
+    // throwing error
+    if (!arg) throw new Error("Invalid argument!");
+
     // calling toUpper Fn
     return toUpper(arg);
   }
