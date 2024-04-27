@@ -113,7 +113,7 @@ describe("utils.ts test suite", () => {
   });
 
   //  hooks - beforeEach, afterEach, beforeAll, afterAll
-  describe.only("StringUtils tests", () => {
+  describe("StringUtils tests", () => {
     let sut: StringUtils;
 
     beforeEach(() => {
@@ -157,5 +157,8 @@ describe("utils.ts test suite", () => {
         done();
       }
     });
+
+    // Marks a test as a "to-do" item, indicating that it is pending and needs to be implemented
+    it.todo("test long string");
   });
 });

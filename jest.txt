@@ -112,3 +112,31 @@
   - Repeatable
   - Self-validating
   - Thorough 
+
+- Jest properties and aliases
+  - properties and aliases provide flexibility and control over test execution in Jest.js, allowing you to focus on 
+    specific tests, skip irrelevant ones, mark pending tasks, and optimize test performance through concurrency.
+
+  - Only (`only`) Property / Alias (`it.only`, `test.only`):
+    - Property: `only`
+    - Alias: `it.only` or `test.only`
+    - Description: Marks a test or test suite to be the only one that will be executed. All other tests or suites are skipped. 
+      This is useful for focusing on a specific test or suite during development or debugging.
+
+  - Skip (`skip`) Property / Alias (`xit`, `test.skip`):
+    - Property: `skip`
+    - Alias: `xit` or `test.skip`
+    - Description: Marks a test or test suite to be skipped and not executed. Skipped tests are still listed in the test output but are not run. 
+      This is useful for temporarily excluding tests that are not relevant or are failing and need further investigation.
+
+  3. TODO (`todo`) Property / Alias (`test.todo`):
+    - Property: `todo`
+    - Alias: `test.todo`
+    - Description: Marks a test as a "to-do" item, indicating that it is pending and needs to be implemented. 
+      When running tests, Jest.js will report the "to-do" tests as pending, reminding you to complete their implementation.
+
+  4. Concurrent (`concurrent`) Property / Alias:
+    - Property: `concurrent`
+    - Alias: Not applicable
+    - Description: Specifies that test suites within a describe block should be executed concurrently, allowing tests to run in parallel. 
+      This can significantly speed up test execution, especially when dealing with asynchronous tests or large test suites.
