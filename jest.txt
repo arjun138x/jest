@@ -105,3 +105,10 @@
 - How do you mock timers and asynchronous functions in Jest.js?
   - Jest.js provides functions like `jest.useFakeTimers()` to mock timers such as `setTimeout()` and `setInterval()`.
   - Asynchronous functions can be mocked using `jest.fn()` to create mock implementations that return promises or values asynchronously.   
+
+- F.I.R.S.T. principles. Principles, not rules that we may follow when writing testes:
+  - Fast 
+  - Independent/Isolated
+  - Repeatable
+  - Self-validating
+  - Thorough 

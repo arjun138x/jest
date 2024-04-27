@@ -2,6 +2,13 @@ export function toUpper(params: string): string {
   return params.toUpperCase();
 }
 
+export class StringUtils {
+  public toUpperCase(arg: string) {
+    // calling toUpper Fn
+    return toUpper(arg);
+  }
+}
+
 export type stringInfo = {
   lowerCase: string;
   upperCase: string;

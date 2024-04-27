@@ -1,4 +1,4 @@
-import { getStringInfo, toUpper } from "../app/utils";
+import { StringUtils, getStringInfo, toUpper } from "../app/utils";
 
 // METHOD 1
 // describe("utils.ts test suite", () => {
@@ -109,6 +109,28 @@ describe("utils.ts test suite", () => {
     test("return right extra info", () => {
       const actual = getStringInfo("My-String");
       expect(actual.extraInfo).toEqual({});
+    });
+  });
+
+  //  hooks - beforeEach, afterEach, beforeAll, afterAll
+  describe("StringUtils tests", () => {
+    let sut: StringUtils;
+
+    beforeEach(() => {
+      sut = new StringUtils();
+      console.log("Setup");
+    });
+
+    afterEach(() => {
+      // clearing mocks
+      console.log("Teardown");
+    });
+
+    it("Should return correct upperCase", () => {
+      const actual = sut.toUpperCase("abc");
+
+      expect(actual).toBe("ABC");
+      console.log("Actual test");
     });
   });
 });
