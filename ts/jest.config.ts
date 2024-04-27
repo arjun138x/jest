@@ -1,10 +1,19 @@
 import type { Config } from "@jest/types";
+
+const baseDir = "<rootDir>/src/app/pass_checker";
+const baseTestDir = "<rootDir>/src/test/pass_checker";
+
 const config: Config.InitialOptions = {
   preset: "ts-jest",
   testEnvironment: "node", // this helps for debugging the jest
   verbose: true,
   collectCoverage: true,
-  collectCoverageFrom: ["<rootDir>/src/app/**/*.ts"],
+  collectCoverageFrom: [
+    // "<rootDir>/src/app/**/*.ts" // to run all test files
+    `${baseDir}/**/*.ts`, // to run one folder
+  ],
+  // to run one test folder
+  testMatch: [`${baseTestDir}/**/*.ts`],
 };
 
 export default config;

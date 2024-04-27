@@ -140,6 +140,7 @@
     - Alias: Not applicable
     - Description: Specifies that test suites within a describe block should be executed concurrently, allowing tests to run in parallel. 
       This can significantly speed up test execution, especially when dealing with asynchronous tests or large test suites.
-- ignore code coverage for any function or class add this before the code 
+
+- Ignore code coverage for any function or class add this before the code 
   - /* istanbul ignore next */.
 

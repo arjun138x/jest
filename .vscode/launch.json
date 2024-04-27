@@ -1,6 +1,7 @@
 {
   "version": "0.2.0",
   "configurations": [
+    // ts folder/repo testing congig
     {
       "type": "node",
       "request": "launch",
