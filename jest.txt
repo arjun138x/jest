@@ -144,3 +144,68 @@
 - Ignore code coverage for any function or class add this before the code 
   - /* istanbul ignore next */.
 
+- Test doubles are objects or functions used in place of real components or dependencies during testing to isolate 
+  the code being tested and control its behavior. In Jest.js, test doubles are commonly created using mock functions. 
+
+  - Mock Functions:
+    - Jest.js provides the `jest.fn()` function to create mock functions.
+    - Mock functions can be used to replace real functions or dependencies, allowing you to simulate their behavior and track their usage during testing.
+    - Mock functions can be configured to return specific values, throw errors, or perform custom actions when called.
+    - Example:
+      const mockFunction = jest.fn();
+      mockFunction.mockReturnValue(42);
+      
+  - Spies:
+    - Spies are a type of test double that wrap around existing functions or methods to monitor their behavior during testing.
+    - In Jest.js, you can create spies using `jest.spyOn()` to track function calls, arguments, and return values.
+    - Spies are useful for verifying that certain functions are called with the expected arguments and how many times they are called.
+    - Example:
+      const object = {
+        method: () => {}
+      };
+      const spy = jest.spyOn(object, 'method');
+
+  - Stubs:
+    - Stubs are test doubles that replace real functions or methods with simplified versions that provide predetermined responses.
+    - In Jest.js, you can use mock functions as stubs to control the behavior of dependencies and simulate different scenarios.
+    - Stubs are commonly used to isolate the code under test from external dependencies and ensure predictable test outcomes.
+    - Example:
+      const fetchData = jest.fn();
+      fetchData.mockResolvedValue({ data: 'mocked data' });
+
+  - Mocks:
+    - Mocks are predefined objects or classes with mocked implementations that replace real components during testing.
+    - In Jest.js, mocks are typically created using the `jest.mock()` function to replace module dependencies with mock implementations.
+    - Mocks allow you to simulate the behavior of external modules or components and control their responses to specific inputs.
+    - Example:
+      jest.mock('./dependency', () => {
+        return jest.fn(() => {
+          return 'mocked dependency';
+        });
+      });
+      
+  - By using test doubles like mock functions, spies, stubs, and mocks, you can isolate the code under test, control its dependencies, 
+    and verify its behavior more effectively in Jest.js tests. This helps improve test reliability, maintainability, and speed.
+
+- Spies vs Mocks
+  - Spies and mocks are both types of test doubles used in testing to observe and control the behavior of functions or objects. 
+    However, they serve slightly different purposes and have distinct characteristics:
+
+  - Spies:
+    - Spies are test doubles that wrap around existing functions or methods to monitor their behavior during testing.
+    - They allow you to observe function calls, track arguments passed to functions, and determine how many times functions are called.
+    - Spies do not replace the original implementation of the function or method; instead, they provide a way to spy on its behavior without modifying it.
+    - Spies are particularly useful for verifying interactions between different parts of the code, 
+      such as ensuring that a function is called with specific arguments or verifying that a callback function is invoked.
+
+  - Mocks:
+    - Mocks, on the other hand, are predefined objects or classes with mocked implementations that replace real components during testing.
+    - They provide a way to simulate the behavior of external dependencies or modules without actually invoking their real implementations.
+    - Mocks replace the original implementation of the function, method, or module with a custom implementation defined by the test writer.
+    - Mocks are useful for isolating the code under test from its dependencies, controlling their behavior, and ensuring predictable test outcomes.
+    - While spies focus on observing the behavior of existing functions or methods, mocks focus on providing fake implementations of external components or dependencies.
+
+  - Spies are primarily used for observing and tracking the behavior of existing functions or methods, while mocks are used for 
+    replacing external dependencies with fake implementations. Both spies and mocks play important roles in testing, 
+    and the choice between them depends on the specific requirements of the test scenario and 
+    the level of control needed over the code under test and its dependencies.
