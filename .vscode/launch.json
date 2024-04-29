@@ -7,12 +7,12 @@
       "request": "launch",
       "name": "Jest Current File",
       // "program": "${workspaceFolder}/node_modules/.bin/jest",
-      "program": "${workspaceFolder}/ts/node_modules/.bin/jest", // my node_modules are insidet the ts folder
+      "program": "${workspaceFolder}/server_app/node_modules/.bin/jest", // my node_modules are insidet the ts folder
       "args": [
         "--runTestsByPath",
         "${relativeFile}",
         "--config",
-        "ts/jest.config.ts" // if it js file add jest.config.js
+        "server_app/jest.config.ts" // if it js file add jest.config.js
       ],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
