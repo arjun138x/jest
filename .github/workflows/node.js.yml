@@ -37,3 +37,7 @@ jobs:
       - name: Test
         run: npm test
         working-directory: server_app
+
+      - name: Integration Test
+        run: npm run itest
+        working-directory: server_app
