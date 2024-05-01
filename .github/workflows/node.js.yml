@@ -21,13 +21,15 @@ jobs:
     steps:
       # will get our project
       - uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
         # will install nodejs in machine
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
-        - run: cd server_app
         with:
           node-version: ${{ matrix.node-version }}
+          path: server_app/package.json
           cache: "npm"
+
+      - run: cd server_app
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
