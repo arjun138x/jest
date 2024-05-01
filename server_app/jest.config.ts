@@ -13,7 +13,7 @@ const config: Config.InitialOptions = {
     `${baseDir}/**/*.ts`, // to run one folder
   ],
   // to run one test folder
-  testMatch: [`${baseTestDir}/**/*.ts`],
+  testMatch: [`${baseTestDir}/**/*test.ts`],
 };
 
 export default config;
