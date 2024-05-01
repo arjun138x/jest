@@ -28,24 +28,14 @@ const someUser: Account = {
   password: "somePassword",
 };
 
-const someToken: SessionToken = {
-  id: someId,
-  userName: someUser.userName,
-  valid: true,
-  expirationDate: new Date("2013-06-26"),
-};
-
 describe("SessionTokenDataAccess test suite", () => {
   let sut: SessionTokenDataAccess;
 
   beforeEach(() => {
     sut = new SessionTokenDataAccess();
     expect(DataBase).toHaveBeenCalledTimes(1);
+    jest.spyOn(global.Date, "now").mockReturnValue(0);
     jest.spyOn(idGenerator, "generateRandomId").mockReturnValue(someId);
-    // mock private method
-    jest
-      .spyOn(sut as any, "generateExpirationTime")
-      .mockImplementation(() => someToken.expirationDate);
   });
 
   afterEach(() => {
@@ -54,11 +44,15 @@ describe("SessionTokenDataAccess test suite", () => {
 
   it("should generate token for account", async () => {
     mockInsert.mockResolvedValueOnce(someId);
-
     const actual = await sut.generateToken(someUser);
 
     expect(actual).toEqual(someId);
-    expect(mockInsert).toHaveBeenCalledWith(someToken);
+    expect(mockInsert).toHaveBeenCalledWith({
+      id: someId,
+      userName: someUser.userName,
+      valid: true,
+      expirationDate: new Date(1000 * 60 * 60),
+    });
   });
 
   it("should invalidate token by tokenId", async () => {
@@ -70,15 +64,23 @@ describe("SessionTokenDataAccess test suite", () => {
   it("should check valid token", async () => {
     mockGetBy.mockResolvedValueOnce({ valid: true });
 
-    const actual = await sut.isValidToken(someId);
+    const actual = await sut.isValidToken({} as any);
 
     expect(actual).toBe(true);
   });
 
   it("should check invalid token", async () => {
-    mockGetBy.mockResolvedValueOnce(null);
+    mockGetBy.mockResolvedValueOnce({ valid: false });
 
-    const actual = await sut.isValidToken(someId);
+    const actual = await sut.isValidToken({} as any);
+
+    expect(actual).toBe(false);
+  });
+
+  it("should check inexistent token", async () => {
+    mockGetBy.mockResolvedValueOnce(undefined);
+
+    const actual = await sut.isValidToken({} as any);
 
     expect(actual).toBe(false);
   });
