@@ -6,6 +6,7 @@
   "scripts": {
     "start": "ts-node Launcher",
     "test": "jest",
+    "itest": "jest --config itest.config.ts",
     "watch": "jest --watch"
   },
   "keywords": [],

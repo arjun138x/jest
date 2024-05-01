@@ -1,7 +1,7 @@
 import type { Config } from "@jest/types";
 
 const baseDir = "<rootDir>/src";
-const baseTestDir = "<rootDir>/test";
+const baseTestDir = "<rootDir>/test/01_integration_testing";
 
 const config: Config.InitialOptions = {
   preset: "ts-jest",
@@ -15,9 +15,7 @@ const config: Config.InitialOptions = {
   // to run one test folder
   testMatch: [`${baseTestDir}/**/*test.ts`],
   // load environment variables
-  setupFiles: [
-    // "<rootDir>/server_app/test/01_integration_testing/utils/config.ts",
-  ],
+  setupFiles: ["<rootDir>/test/01_integration_testing/utils/config.ts"],
 };
 
 export default config;
