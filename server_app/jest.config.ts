@@ -14,6 +14,10 @@ const config: Config.InitialOptions = {
   ],
   // to run one test folder
   testMatch: [`${baseTestDir}/**/*test.ts`],
+  // load environment variables
+  setupFiles: [
+    "<rootDir>/server_app/test/01_integration_testing/utils/config.ts",
+  ],
 };
 
 export default config;
